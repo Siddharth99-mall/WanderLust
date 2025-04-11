@@ -1,0 +1,45 @@
+<% layout("/layouts/boilerplate.ejs") -%>
+<body>
+   <div class="row offset-2">
+        <h3 class="edit-heading mt-2"><b>Edit Listing</b></h3>
+    <form method="POST" action="/listing/<%= data.id %>?_method=PUT" novalidate class="needs-validation">
+        <div class="mb-2 col-8">
+                <label for="title" class="form-label">Title</label>
+                <input id="title" class="form-control" name="listing[title]" value="<%= data.title%>" required>
+                <div class="valid-feedback">Title looks good!</div>
+        </div>
+        <div class="mb-2 col-8">
+                <label for="desc" class="form-label">Description</label>
+                <textarea name="listing[description]" class="form-control" id="desc" required><%= data.description %></textarea>
+                <div class="invalid-feedback">Please provide a description</div>
+        </div> 
+        <div class="mb-2 col-8">
+                <label for="desc" class="form-label">Image</label>
+                <input name="listing[image]" class="form-control" id="desc" value="<%= data.image %>">
+       
+        </div> 
+      <div class="row">
+        <div class="mb-2 col-md-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price" name="listing[price]" value="<%=data.price%>" required>
+                <div class="invalid-feedback">Please provide a price</div>
+        </div>
+        <div class="mb-2 col-md-5">
+                <label for="coun" class="form-label">Country</label>
+                <input type="text" class="form-control" id="coun" name="listing[country]"  value="<%=data.country%>" required>
+                <div class="invalid-feedback">Please provide a country</div>
+        </div>
+        
+      </div>
+        <div class="mb-2 col-8">
+                <label for="loc" class="form-label">Location</label>
+                <input type="text" class="form-control" id="loc" name="listing[location]" value="<%=data.location%>" required> 
+                <div class="invalid-feedback">Please provide a location</div>
+        </div>
+       
+        <button class="btn update-btn mt-2">Update Details</button>
+    </form>
+    </div>
+</body>
+
+
